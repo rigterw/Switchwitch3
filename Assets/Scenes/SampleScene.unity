@@ -337,6 +337,8 @@ GameObject:
   - component: {fileID: 765749902}
   - component: {fileID: 765749906}
   - component: {fileID: 765749905}
+  - component: {fileID: 765749908}
+  - component: {fileID: 765749907}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -478,6 +480,68 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3263219, y: 0.8814471}
   m_EdgeRadius: 0
+--- !u!114 &765749907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765749901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c49d97b88ad8df4c8f7e186a4376266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &765749908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765749901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 184f65a0b89ec2d4ca176076904cef95, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a8297841-8b8d-4b92-81d3-cf2b7ecb121d
+    m_ActionName: player/Up[/Keyboard/w,/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 24c7ef06-fb7e-407b-9417-90cca45163c3
+    m_ActionName: player/Fire[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cda713ec-d2ce-4ddb-9c04-d900e24bd000
+    m_ActionName: player/Pauze[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: db874a68-e18e-4ee8-ba22-d04ebf5d5ffe
+    m_ActionName: player/VerticalMove[/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b24c8310-01dc-4f05-9622-4e826879b5ed
+    m_ActionName: player/Down[/Keyboard/s,/Keyboard/downArrow]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1117962625
 GameObject:
   m_ObjectHideFlags: 0
