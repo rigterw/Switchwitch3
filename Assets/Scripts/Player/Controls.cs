@@ -28,16 +28,16 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ""id"": ""10be7050-cc2a-4982-b68b-27c4cc5f3bf3"",
             ""actions"": [
                 {
-                    ""name"": ""Up"",
-                    ""type"": ""Button"",
+                    ""name"": ""UpDown"",
+                    ""type"": ""Value"",
                     ""id"": ""a8297841-8b8d-4b92-81d3-cf2b7ecb121d"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""UsePower"",
                     ""type"": ""Button"",
                     ""id"": ""24c7ef06-fb7e-407b-9417-90cca45163c3"",
                     ""expectedControlType"": ""Button"",
@@ -62,40 +62,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Down"",
-                    ""type"": ""Button"",
-                    ""id"": ""b24c8310-01dc-4f05-9622-4e826879b5ed"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""95cfd6a6-65c1-450d-be23-46012b6a720b"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e2079c87-8ef9-4927-8183-59b0058cecae"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""fe4fc528-9764-4240-bce4-9dd780f0d8c1"",
@@ -103,7 +72,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Fire"",
+                    ""action"": ""UsePower"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -185,26 +154,70 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""fbbbf9c8-e073-4897-aeee-2642b9016c18"",
+                    ""name"": ""WS"",
+                    ""id"": ""64b8c454-1087-43a1-90a3-7d5c861544ab"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""9177b1aa-e9d9-4092-98bf-e38b86bb01d4"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Down"",
+                    ""action"": ""UpDown"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""3be7d48a-3491-439a-9a0a-97e28a4591aa"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""arrows"",
+                    ""id"": ""095d00e4-154f-4b80-b585-0eef3f89e4b4"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""05284d76-d597-408f-9bd7-429a9cab85f1"",
+                    ""name"": ""negative"",
+                    ""id"": ""f5adc859-be02-4484-bb99-7cdca184f81e"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Down"",
+                    ""action"": ""UpDown"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""c560067e-ffa3-4d89-8f6a-d8b283b5a351"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -213,11 +226,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
 }");
         // player
         m_player = asset.FindActionMap("player", throwIfNotFound: true);
-        m_player_Up = m_player.FindAction("Up", throwIfNotFound: true);
-        m_player_Fire = m_player.FindAction("Fire", throwIfNotFound: true);
+        m_player_UpDown = m_player.FindAction("UpDown", throwIfNotFound: true);
+        m_player_UsePower = m_player.FindAction("UsePower", throwIfNotFound: true);
         m_player_Pauze = m_player.FindAction("Pauze", throwIfNotFound: true);
         m_player_Move = m_player.FindAction("Move", throwIfNotFound: true);
-        m_player_Down = m_player.FindAction("Down", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -277,20 +289,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     // player
     private readonly InputActionMap m_player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_player_Up;
-    private readonly InputAction m_player_Fire;
+    private readonly InputAction m_player_UpDown;
+    private readonly InputAction m_player_UsePower;
     private readonly InputAction m_player_Pauze;
     private readonly InputAction m_player_Move;
-    private readonly InputAction m_player_Down;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
         public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Up => m_Wrapper.m_player_Up;
-        public InputAction @Fire => m_Wrapper.m_player_Fire;
+        public InputAction @UpDown => m_Wrapper.m_player_UpDown;
+        public InputAction @UsePower => m_Wrapper.m_player_UsePower;
         public InputAction @Pauze => m_Wrapper.m_player_Pauze;
         public InputAction @Move => m_Wrapper.m_player_Move;
-        public InputAction @Down => m_Wrapper.m_player_Down;
         public InputActionMap Get() { return m_Wrapper.m_player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -300,50 +310,43 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @Up.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUp;
-                @Up.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUp;
-                @Up.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUp;
-                @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @UpDown.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpDown;
+                @UpDown.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpDown;
+                @UpDown.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUpDown;
+                @UsePower.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePower;
+                @UsePower.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePower;
+                @UsePower.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUsePower;
                 @Pauze.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauze;
                 @Pauze.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauze;
                 @Pauze.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauze;
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Down.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDown;
-                @Down.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDown;
-                @Down.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDown;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Up.started += instance.OnUp;
-                @Up.performed += instance.OnUp;
-                @Up.canceled += instance.OnUp;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @UpDown.started += instance.OnUpDown;
+                @UpDown.performed += instance.OnUpDown;
+                @UpDown.canceled += instance.OnUpDown;
+                @UsePower.started += instance.OnUsePower;
+                @UsePower.performed += instance.OnUsePower;
+                @UsePower.canceled += instance.OnUsePower;
                 @Pauze.started += instance.OnPauze;
                 @Pauze.performed += instance.OnPauze;
                 @Pauze.canceled += instance.OnPauze;
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Down.started += instance.OnDown;
-                @Down.performed += instance.OnDown;
-                @Down.canceled += instance.OnDown;
             }
         }
     }
     public PlayerActions @player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnUp(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
+        void OnUpDown(InputAction.CallbackContext context);
+        void OnUsePower(InputAction.CallbackContext context);
         void OnPauze(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
-        void OnDown(InputAction.CallbackContext context);
     }
 }
