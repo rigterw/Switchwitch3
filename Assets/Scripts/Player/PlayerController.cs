@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public BoolVariable reverseGravity;
 
     Rigidbody2D rigidBody;
-    public Vector2 velocity;
+    public float movementSpeed;
     Vector2 moveValue;
     // Start is called before the first frame update
     void Start()
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate(){
-        rigidBody.velocity = moveValue * velocity;
+        rigidBody.velocity = moveValue * movementSpeed;
     }
 
 
