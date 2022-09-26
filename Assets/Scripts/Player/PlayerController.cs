@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     void OnDisable(){
         move.Disable();
         Power.Disable();
-        UpDown.Enable();
+        UpDown.Disable();
 
     }
 
@@ -62,11 +62,12 @@ public class PlayerController : MonoBehaviour
 
 
     void HandleGravity(){
-        if(UpDown.ReadValue<float>() == -1 + 2*Convert.ToInt32(reverseGravity.value))
-            return;
+       // if(UpDown.ReadValue<float>() == -1 + 2*Convert.ToInt32(reverseGravity.value))
+         //   return;
 
         GameObject level = GameObject.Find("Level");
         level.GetComponent<GravityController>().switchGravity();
+        GetComponent<SpriteRenderer>().flipY = reverseGravity.value;
     }
     /// <summary>
     /// function that activates the current power
