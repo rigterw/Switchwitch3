@@ -8,6 +8,9 @@ public class GravityController : MonoBehaviour
     public const float gravity = 25f;
 
 
+    /// <summary>
+    /// Function that changes the gravity of all physics objects
+    /// </summary>
     public void switchGravity(){
 
         ReverseGravity.value = !ReverseGravity.value;
@@ -28,11 +31,20 @@ public class GravityController : MonoBehaviour
         SetGravity(GameObject.Find("Player"), newGravityValue);
     }
 
+    /// <summary>
+    /// Function that sets the gravity force of an object
+    /// </summary>
+    /// <param name="obj">the object that needs to change gravity</param>
+    /// <param name="newValue">the value of the gravity force</param>
     void SetGravity(GameObject obj, float newValue){
                     Rigidbody2D objBody = obj.GetComponent<Rigidbody2D>();
-            if(objBody == null)
-                return;
 
-            objBody.gravityScale = newValue;
+        if (objBody == null)
+        {//check if object has a rigid body
+            Debug.LogError(obj.name + " doesn't have a rigidbody to update gravity for");
+            return;
+        }
+
+        objBody.gravityScale = newValue;
     }
 }

@@ -4,18 +4,21 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+
 public class PlayerController : MonoBehaviour
 {
     public Controls playerInput;
     InputAction move;
     InputAction Power;
     InputAction UpDown;
-    public BoolVariable reverseGravity;
 
+    public BoolVariable reverseGravity;
     Rigidbody2D rigidBody;
+
     public float movementSpeed;
     Vector2 moveValue;
-    // Start is called before the first frame update
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -58,13 +61,16 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate(){
         rigidBody.velocity = moveValue * movementSpeed;
+
+        //flips the sprite x-as
+        if(moveValue.x != 0)
+        GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x <= -1f;
     }
 
-
+    /// <summary>
+    /// function that switches the levels gravity
+    /// </summary>
     void HandleGravity(){
-       // if(UpDown.ReadValue<float>() == -1 + 2*Convert.ToInt32(reverseGravity.value))
-         //   return;
-
         GameObject level = GameObject.Find("Level");
         level.GetComponent<GravityController>().switchGravity();
         GetComponent<SpriteRenderer>().flipY = reverseGravity.value;
@@ -75,4 +81,6 @@ public class PlayerController : MonoBehaviour
     void UsePower(InputAction.CallbackContext context){
         Debug.Log(context.ToString());
     }
+
+
 }
