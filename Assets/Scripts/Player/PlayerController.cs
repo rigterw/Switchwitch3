@@ -82,5 +82,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log(context.ToString());
     }
 
+    public Vector2 MovementValue {
+        get { return moveValue * movementSpeed; }
+    }
 
 }
