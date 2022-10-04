@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     InputAction Power;
     InputAction UpDown;
 
+    bool onGround;
     public BoolVariable reverseGravity;
     Rigidbody2D rigidBody;
 
@@ -57,6 +58,7 @@ public class PlayerController : MonoBehaviour
         }else if(UpDown.ReadValue<float>() != 0){
             HandleGravity();
         }
+        Debug.Log(onGround);
     }
 
     void FixedUpdate(){
@@ -71,6 +73,8 @@ public class PlayerController : MonoBehaviour
     /// function that switches the levels gravity
     /// </summary>
     void HandleGravity(){
+        if(!onGround)
+            return;
         GameObject level = GameObject.Find("Level");
         level.GetComponent<GravityController>().switchGravity();
         GetComponent<SpriteRenderer>().flipY = reverseGravity.value;
@@ -86,4 +90,16 @@ public class PlayerController : MonoBehaviour
         get { return moveValue * movementSpeed; }
     }
 
+
+    void OnCollisionStay2D(Collision2D collider){
+        if(collider.gameObject.GetComponent<CustomTags>().hasTag(Tag.surface)){
+            onGround = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collider){
+                if(collider.gameObject.GetComponent<CustomTags>().hasTag(Tag.surface)){
+            onGround = false;
+        }
+    }
 }

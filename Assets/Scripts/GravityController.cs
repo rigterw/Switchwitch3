@@ -16,19 +16,17 @@ public class GravityController : MonoBehaviour
         ReverseGravity.value = !ReverseGravity.value;
 
         float newGravityValue = gravity;
-        GameObject[] objects;
+        List<GameObject> objects;
 
         if(ReverseGravity.value){
             newGravityValue = -gravity;
         }
 
-        objects = GameObject.FindGameObjectsWithTag("GravityAffected");
+        objects = CustomTags.FindGameObjectsWithTag(Tag.gravityAffected);
 
         foreach (GameObject obj in objects){
             SetGravity(obj, newGravityValue);
         }
-
-        SetGravity(GameObject.Find("Player"), newGravityValue);
     }
 
     /// <summary>
@@ -37,7 +35,7 @@ public class GravityController : MonoBehaviour
     /// <param name="obj">the object that needs to change gravity</param>
     /// <param name="newValue">the value of the gravity force</param>
     void SetGravity(GameObject obj, float newValue){
-                    Rigidbody2D objBody = obj.GetComponent<Rigidbody2D>();
+        Rigidbody2D objBody = obj.GetComponent<Rigidbody2D>();
 
         if (objBody == null)
         {//check if object has a rigid body
