@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        
     }
 
     void Awake(){
@@ -79,12 +80,14 @@ public class PlayerController : MonoBehaviour
         level.GetComponent<GravityController>().switchGravity();
         GetComponent<SpriteRenderer>().flipY = reverseGravity.value;
     }
+
     /// <summary>
     /// function that activates the current power
     /// </summary>
     void UsePower(InputAction.CallbackContext context){
         Debug.Log(context.ToString());
     }
+
 
     public Vector2 MovementValue {
         get { return moveValue * movementSpeed; }
