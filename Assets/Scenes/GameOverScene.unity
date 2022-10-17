@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 614922284}
   - component: {fileID: 614922283}
   - component: {fileID: 614922282}
+  - component: {fileID: 614922285}
   m_Layer: 0
   m_Name: Retry
   m_TagString: Untagged
@@ -284,13 +285,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 102900000, guid: 224102132d4c28643ae0fba34115aad7, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 614922285}
+        m_TargetAssemblyTypeName: respawn, Assembly-CSharp
+        m_MethodName: Respawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -334,6 +335,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614922280}
   m_CullTransparentMesh: 1
+--- !u!114 &614922285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614922280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992b8e2d2861cb74a9947b6d8502005a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 11400000, guid: 9788c661e921b5643bd4ec0379dfaa1f, type: 2}
 --- !u!1 &789258728
 GameObject:
   m_ObjectHideFlags: 0

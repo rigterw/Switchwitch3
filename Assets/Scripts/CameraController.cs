@@ -37,12 +37,11 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        HandleBackGround();
+        ExtendBackGround();
     }
 
     void FixedUpdate(){
         MoveCamera();
-
     }
 
 
@@ -64,11 +63,11 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    void HandleBackGround(){
-        ExtendBackGround();
-    }
-
+    /// <summary>
+    /// function that spawns a new background every time the camera gets to the lasts backgrounds edge
+    /// </summary>
     void ExtendBackGround(){
+    //check if the camera is near the edge
     if(position.position.x < nextSpawnValue)
         return;
     

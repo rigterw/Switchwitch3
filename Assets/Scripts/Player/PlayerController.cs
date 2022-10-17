@@ -8,17 +8,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    //variables for controls
     public Controls playerInput;
     InputAction move;
     InputAction Power;
     InputAction UpDown;
+    //variables for movement
+    public float movementSpeed;
+    Vector2 moveValue;
 
+    //variables for gravity handling
     bool onGround;
     public BoolVariable reverseGravity;
     Rigidbody2D rigidBody;
 
-    public float movementSpeed;
-    Vector2 moveValue;
+
+
 
     void Start()
     {
@@ -59,7 +64,6 @@ public class PlayerController : MonoBehaviour
         }else if(UpDown.ReadValue<float>() != 0){
             HandleGravity();
         }
-        Debug.Log(onGround);
     }
 
     void FixedUpdate(){

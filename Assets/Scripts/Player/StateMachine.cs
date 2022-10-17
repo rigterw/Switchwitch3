@@ -43,7 +43,7 @@ public class StateMachine : MonoBehaviour
 
         if(velocity.x != 0)
             return State.walking;
-
+        
         return State.idle;
     }
 
