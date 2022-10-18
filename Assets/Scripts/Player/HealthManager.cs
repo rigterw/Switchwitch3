@@ -4,9 +4,10 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField]
     int health = 3;
-    bool invincible = false;
-    int timer = 200;
-    int invTime = 500;
+    int timer = 0;
+    const int invTime = 150;
+
+    SpriteRenderer sprite;
 
 
     /// <summary>
@@ -28,7 +29,7 @@ public class HealthManager : MonoBehaviour
     public void GetHit(){
         if(timer > 0)
             return;
-
+        GameObject.Find("life" + health).SetActive(false);
         health--;
 
         if(health <= 0)
@@ -37,14 +38,22 @@ public class HealthManager : MonoBehaviour
         timer = invTime;
     }
 
+    void Start(){
+        sprite = GetComponent<SpriteRenderer>();
+    }
     void FixedUpdate(){
         if(timer > 0){
             timer--;
-            Debug.Log(timer);
+            Flash();
+           //Debug.Log(timer);
         }
     }
     
     void Flash(){
-        
+        if(timer % 30 == 0){
+            sprite.color = new Color(255,255,255);
+        }else if(timer %15 == 0){
+            sprite.color = new Color(255,0,0);
+        }
     }
 }
