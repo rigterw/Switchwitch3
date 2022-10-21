@@ -8,6 +8,7 @@ public class HealthManager : MonoBehaviour
     const int invTime = 150;
 
     SpriteRenderer sprite;
+    Transform trans;
 
 
     /// <summary>
@@ -40,13 +41,14 @@ public class HealthManager : MonoBehaviour
 
     void Start(){
         sprite = GetComponent<SpriteRenderer>();
+        trans = GetComponent<Transform>();
     }
     void FixedUpdate(){
         if(timer > 0){
             timer--;
             Flash();
-           //Debug.Log(timer);
         }
+        OutOfBoundsCheck();
     }
     
     void Flash(){
@@ -55,5 +57,10 @@ public class HealthManager : MonoBehaviour
         }else if(timer %15 == 0){
             sprite.color = new Color(255,0,0);
         }
+    }
+
+    void OutOfBoundsCheck(){
+        if(trans.position.y < -5 || trans.position.y > 10)
+            Die();
     }
 }
