@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class HealthManager : MonoBehaviour
 {
+    public const int MAXHEALTH = 3;
     [SerializeField]
-    int health = 3;
+    int health = MAXHEALTH;
     int timer = 0;
     const int invTime = 150;
 
@@ -37,6 +38,31 @@ public class HealthManager : MonoBehaviour
             Die();
 
         timer = invTime;
+    }
+
+    /// <summary>
+    /// function that gives another healthpoint to the player
+    /// </summary>
+    public void Heal(){
+        if(health == MAXHEALTH)
+            return;
+        health++;
+        Debug.Log("life" + health);
+        GameObject.Find("life" + health).SetActive(true);
+    }
+
+
+    /// <summary>
+    /// function that heals the player a specific amount of lives
+    /// </summary>
+    /// <param name="amount">the amount of lives a player gets back</param>
+    public void Heal(int amount){
+        if(health + amount > MAXHEALTH)
+            amount = MAXHEALTH - health;
+
+        for (int i = 0; i < amount; i++){
+            Heal();
+        }
     }
 
     void Start(){
