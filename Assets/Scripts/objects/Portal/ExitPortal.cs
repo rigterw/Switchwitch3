@@ -23,9 +23,16 @@ public class ExitPortal : MonoBehaviour
     IEnumerator NextLevel(Collider2D other){
         other.gameObject.SetActive(false);
         yield return new WaitForSeconds(3);
-        Debug.Log("test");
         level.value++;
         SceneManager.LoadScene("level" + level.value);
 
+    }
+
+    /// <summary>
+    /// function that makes the portal dissapear after close
+    /// </summary>
+    void Update(){
+      if(  animator.GetCurrentAnimatorStateInfo(0).IsName("Remove"))
+            gameObject.SetActive(false);
     }
 }
