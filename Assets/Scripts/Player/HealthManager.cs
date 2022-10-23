@@ -9,7 +9,6 @@ public class HealthManager : MonoBehaviour
     const int invTime = 150;
 
     SpriteRenderer sprite;
-    Transform trans;
 
 
     /// <summary>
@@ -17,6 +16,7 @@ public class HealthManager : MonoBehaviour
     /// </summary>
     public void Die(){
         health = 0;
+        Debug.Log(transform.position);
         SceneManager.LoadScene("GameOverScene");
         
     }
@@ -67,7 +67,6 @@ public class HealthManager : MonoBehaviour
 
     void Start(){
         sprite = GetComponent<SpriteRenderer>();
-        trans = GetComponent<Transform>();
     }
     void FixedUpdate(){
         if(timer > 0){
@@ -86,7 +85,7 @@ public class HealthManager : MonoBehaviour
     }
 
     void OutOfBoundsCheck(){
-        if(trans.position.y < -5 || trans.position.y > 10)
+        if(transform.position.y < -5 || transform.position.y > 10)
             Die();
     }
 }

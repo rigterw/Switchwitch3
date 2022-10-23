@@ -64,14 +64,13 @@ public class PlayerController : MonoBehaviour
         }else if(UpDown.ReadValue<float>() != 0){
             HandleGravity();
         }
+
+        //flips the sprite x-as
+        GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x <= -1f;
     }
 
     void FixedUpdate(){
         rigidBody.velocity = moveValue * movementSpeed;
-
-        //flips the sprite x-as
-        if(moveValue.x != 0)
-        GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x <= -1f;
     }
 
     /// <summary>
@@ -99,7 +98,10 @@ public class PlayerController : MonoBehaviour
 
 
     void OnCollisionStay2D(Collision2D collider){
-        if(collider.gameObject.GetComponent<CustomTags>().hasTag(Tag.surface)){
+        CustomTags tags = collider.gameObject.GetComponent<CustomTags>();
+        if(tags == null)
+            return;
+        if(tags.hasTag(Tag.surface)){
             onGround = true;
         }
     }
