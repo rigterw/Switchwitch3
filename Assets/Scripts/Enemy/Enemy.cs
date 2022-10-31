@@ -15,14 +15,15 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<SpriteRenderer>().flipX = rb.velocity.x <= -1f;
+        if(rb.velocity.x != 0f)
+        GetComponent<SpriteRenderer>().flipX = rb.velocity.x <= -0.5f;
     }
 
     void FixedUpdate()
     {
-        velocity = Vector2.zero;
-        velocity.x += movementSpeed;
+        velocity = rb.velocity;
+        velocity.x = movementSpeed;
         Debug.Log(velocity);
-        rb.AddForce(velocity, ForceMode2D.Impulse);
+        rb.velocity = velocity;
     }
 }
