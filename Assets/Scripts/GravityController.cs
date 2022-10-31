@@ -15,34 +15,30 @@ public class GravityController : MonoBehaviour
 
         ReverseGravity.value = !ReverseGravity.value;
 
-        float newGravityValue = gravity;
         List<GameObject> objects;
 
-        if(ReverseGravity.value){
-            newGravityValue = -gravity;
-        }
 
         objects = CustomTags.FindGameObjectsWithTag(Tag.gravityAffected);
 
         foreach (GameObject obj in objects){
-            SetGravity(obj, newGravityValue);
+            SetGravity(obj);
         }
+
     }
 
     /// <summary>
     /// Function that sets the gravity force of an object
     /// </summary>
     /// <param name="obj">the object that needs to change gravity</param>
-    /// <param name="newValue">the value of the gravity force</param>
-    void SetGravity(GameObject obj, float newValue){
-        Rigidbody2D objBody = obj.GetComponent<Rigidbody2D>();
+    void SetGravity(GameObject obj){
+        GravityUpdater objGravityUpdater = obj.GetComponent<GravityUpdater>();
 
-        if (objBody == null)
+        if (objGravityUpdater == null)
         {//check if object has a rigid body
-            Debug.LogError(obj.name + " doesn't have a rigidbody to update gravity for");
+            Debug.LogError(obj.name + " doesn't have a GravityUpdater to update gravity for");
             return;
         }
 
-        objBody.gravityScale = newValue;
+        objGravityUpdater.ChangeGravity(ReverseGravity.value);
     }
 }
