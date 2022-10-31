@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public enum Tag{
-    surface, gravityAffected
+    surface, gravityAffected, playerPassable
 }
 public class CustomTags : MonoBehaviour
 {

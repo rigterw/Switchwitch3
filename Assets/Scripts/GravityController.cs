@@ -5,7 +5,7 @@ using UnityEngine;
 public class GravityController : MonoBehaviour
 {
     public BoolVariable ReverseGravity;
-    public const float gravity = 25f;
+    public const float gravity = 1f;
 
 
     /// <summary>

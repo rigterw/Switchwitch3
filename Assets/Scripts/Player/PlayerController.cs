@@ -70,7 +70,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate(){
-        rigidBody.velocity = moveValue * movementSpeed;
+        moveValue *= movementSpeed;
+        moveValue.y = rigidBody.velocity.y;
+        rigidBody.velocity = moveValue;
     }
 
     /// <summary>

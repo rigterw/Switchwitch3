@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
 
         if(BounceCheck()){
             movementSpeed = -movementSpeed;
+            bouncePoint.localPosition = new Vector2(-bouncePoint.localPosition.x, bouncePoint.localPosition.y);
         }
     }
 
@@ -62,11 +63,10 @@ public class Enemy : MonoBehaviour
     /// <returns>true if the player hits a wall</returns>
     bool BounceCheck(){
         Vector2 direction = isFacingRight ? Vector2.right : Vector2.left;
-        RaycastHit2D wallHit = Physics2D.Raycast(bouncePoint.position, direction, bounceCheckDistance);
+        RaycastHit2D wallHit = Physics2D.Raycast(bouncePoint.position, direction, bounceCheckDistance, LayerMask.GetMask("world"));
         bool shouldBounce = wallHit.collider != null;
-        
-        if(shouldBounce)
-            bouncePoint.localPosition = new Vector2(-bouncePoint.localPosition.x, bouncePoint.localPosition.y);
+
+
         return shouldBounce;
     }
 
