@@ -1,24 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class HealthManager : MonoBehaviour
 {
     public const int MAXHEALTH = 3;
-    [SerializeField]
-    int health = MAXHEALTH;
-    int timer = 0;
-    const int invTime = 150;
-
-    SpriteRenderer sprite;
-
+    [SerializeField] protected int health;
 
     /// <summary>
     /// function that kills the player
     /// </summary>
-    public void Die(){
-        health = 0;
-        Debug.Log(transform.position);
-        SceneManager.LoadScene("GameOverScene");
-        
+    public virtual void Die(){
+        health = 0;        
     }
     public int Health {
         get  => health;
@@ -28,27 +18,19 @@ public class HealthManager : MonoBehaviour
     /// <summary>
     /// function that makes the player lose a life
     /// </summary>
-    public void GetHit(){
-        if(timer > 0)
-            return;
-        GameObject.Find("life" + health).SetActive(false);
+    public virtual void GetHit(){
         health--;
-
         if(health <= 0)
             Die();
-
-        timer = invTime;
     }
 
     /// <summary>
     /// function that gives another healthpoint to the player
     /// </summary>
-    public void Heal(){
+    public virtual void Heal(){
         if(health == MAXHEALTH)
             return;
         health++;
-        Debug.Log("life" + health);
-        GameObject.Find("life" + health).SetActive(true);
     }
 
 
@@ -65,27 +47,5 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    void Start(){
-        sprite = GetComponent<SpriteRenderer>();
-    }
-    void FixedUpdate(){
-        if(timer > 0){
-            timer--;
-            Flash();
-        }
-        OutOfBoundsCheck();
-    }
-    
-    void Flash(){
-        if(timer % 30 == 0){
-            sprite.color = new Color(255,255,255);
-        }else if(timer %15 == 0){
-            sprite.color = new Color(255,0,0);
-        }
-    }
-
-    void OutOfBoundsCheck(){
-        if(transform.position.y < -5 || transform.position.y > 10)
-            Die();
-    }
+   
 }

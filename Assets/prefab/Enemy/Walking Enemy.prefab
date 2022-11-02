@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4244898330769393126}
   - component: {fileID: 4244898330769393127}
   - component: {fileID: 4244898330769393128}
+  - component: {fileID: 3617146639875818524}
   m_Layer: 8
   m_Name: Walking Enemy
   m_TagString: GravityAffected
@@ -199,6 +200,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7add15747c3f15842bda64185d2db202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3617146639875818524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4244898330769393151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fdf29f30c17b6d49abb49d2ab8c9ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1 &4244898331331893908
 GameObject:
   m_ObjectHideFlags: 0

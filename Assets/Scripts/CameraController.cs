@@ -54,10 +54,12 @@ public class CameraController : MonoBehaviour
             playerDirection = Rbody.velocity.x < 0 ? -1 : 1;
 
         //calculates the camera speed
-        Vector3 power = (playerPos.position + new Vector3(5,0,0)*playerDirection - position.position) / 80;
+        Vector3 power = (playerPos.position  - position.position + new Vector3(5,0,0)*playerDirection) / 80;
 
         //moves the camera
         position.position += new Vector3(power.x, 0,0);
+
+        //prevents the camera to go off screen
         if(position.position.x < 0){
             position.position = new Vector3(0, position.position.y, position.position.z);
         }
