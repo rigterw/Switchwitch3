@@ -1,26 +1,45 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerHealth : HealthManager
 {
 
     int timer = 0;
     const int invTime = 150;
+    GameObject Lives;
+    List<GameObject> lives = new List<GameObject>();
 
     SpriteRenderer sprite;
+
+     void Start(){
+        health = MAXHEALTH;
+        sprite = GetComponent<SpriteRenderer>();
+        Transform LivesHolder = GameObject.Find("LivesUI").transform;
+
+        foreach (Transform life in LivesHolder){
+            lives.Add(life.gameObject);
+        }
+
+
+    }
+    void FixedUpdate(){
+        if(timer > 0){
+            timer--;
+            Flash();
+        }
+        OutOfBoundsCheck();
+    }
 
     public override void GetHit(){
         if(timer > 0)
             return;
         
-        GameObject.Find("life" + health).SetActive(false);
+        lives[health -1].SetActive(false);
 
         timer = invTime;
         base.GetHit();
-    }
-
-    void start(){
-        health = MAXHEALTH;
     }
 
     public override void Die(){
@@ -31,20 +50,11 @@ public class PlayerHealth : HealthManager
 
     public override void Heal(){
         base.Heal();
-        GameObject.Find("life" + health).SetActive(true);
+        lives[health -1].SetActive(true);
 
     }
 
-     void Start(){
-        sprite = GetComponent<SpriteRenderer>();
-    }
-    void FixedUpdate(){
-        if(timer > 0){
-            timer--;
-            Flash();
-        }
-        OutOfBoundsCheck();
-    }
+
     
     void Flash(){
         if(timer % 30 == 0){

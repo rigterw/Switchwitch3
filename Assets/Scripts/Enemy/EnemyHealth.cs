@@ -8,12 +8,17 @@ public class EnemyHealth : HealthManager
     public override void Die()
     {
         base.Die();
-        GetComponent<BoxCollider2D>().enabled = false;
         died = true;
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(gameObject, 5);
+
     }
 
     void Update(){
-        if(died)
+        if(!died)
+            return;
+        
+        //starts rotating when dead
         transform.Rotate(new Vector3(0, 0, 2 * rotationdir));
     }
 }

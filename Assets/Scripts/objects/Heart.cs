@@ -12,7 +12,8 @@ public class Heart : MonoBehaviour
     /// </summary>
     /// <param name="other">object that collides</param>
     void OnTriggerEnter2D(Collider2D other){
-        Debug.Log("boink");
+        if(!other.CompareTag("Player"))
+            return;
         HealthManager playerHealth = other.gameObject.GetComponent<HealthManager>();
         if(playerHealth == null)
             return;

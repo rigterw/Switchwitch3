@@ -11,6 +11,7 @@ public class CreateLifes : MonoBehaviour
            GameObject tempHeart = Instantiate(heart, new Vector3(50 * i, Screen.height - 50, 0), Quaternion.identity, this.transform);
             tempHeart.name = "life" + i;
         }
+        Debug.Log("lives ready");
     }
 
     // Update is called once per frame

@@ -6,13 +6,14 @@ public class GravityController : MonoBehaviour
 {
     public BoolVariable ReverseGravity;
     public const float gravity = 1f;
+   [SerializeField] AudioSource switchSound;
 
 
     /// <summary>
     /// Function that changes the gravity of all physics objects
     /// </summary>
     public void switchGravity(){
-
+        switchSound.Play();
         ReverseGravity.value = !ReverseGravity.value;
 
         List<GameObject> objects;
