@@ -109,7 +109,8 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionExit2D(Collision2D collider){
-                if(collider.gameObject.GetComponent<CustomTags>().hasTag(Tag.surface)){
+        CustomTags otherTags = collider.gameObject.GetComponent<CustomTags>();
+        if(otherTags != null && otherTags.hasTag(Tag.surface)){
             onGround = false;
         }
     }

@@ -8,14 +8,16 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        SetDirection();
+        SetDirection(GetComponent<SpriteRenderer>());
     }
 
+
+
     /// <summary>
-    /// 
+    /// sets the direction of the sprites
     /// </summary>
-    protected virtual void SetDirection(){
-        GetComponent<SpriteRenderer>().flipX = facingLeft;
+    protected virtual void SetDirection(SpriteRenderer sprite){
+        sprite.flipX = facingLeft;
         isFacingRight = !facingLeft;
     }
 

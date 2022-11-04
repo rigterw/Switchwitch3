@@ -11,7 +11,7 @@ public class GravityUpdater : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    public void ChangeGravity(bool isReversed){
+    public virtual void ChangeGravity(bool isReversed){
         rb.gravityScale = isReversed ? -GravityController.gravity : GravityController.gravity;
         GetComponent<SpriteRenderer>().flipY = isReversed;
     }

@@ -18,7 +18,7 @@ public class DamagePlayer : MonoBehaviour
             return;
         
         hm.GetHit();
-
-        damageSound.Play();
+        if(damageSound != null)
+            damageSound.Play();
     }
 }
