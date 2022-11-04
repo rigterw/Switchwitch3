@@ -13,7 +13,6 @@ public class GravityController : MonoBehaviour
     /// Function that changes the gravity of all physics objects
     /// </summary>
     public void switchGravity(){
-        switchSound.Play();
         ReverseGravity.value = !ReverseGravity.value;
 
         List<GameObject> objects;
@@ -25,6 +24,7 @@ public class GravityController : MonoBehaviour
             SetGravity(obj);
         }
 
+        switchSound.Play();
     }
 
     /// <summary>

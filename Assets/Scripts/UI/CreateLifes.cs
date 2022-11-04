@@ -4,7 +4,7 @@ public class CreateLifes : MonoBehaviour
 {
     [SerializeField]
     GameObject heart;
-    void Start()
+    public void MakeLifes()
     {
         int health =  HealthManager.MAXHEALTH;
         for (int i = 1; i < health+1; i++){

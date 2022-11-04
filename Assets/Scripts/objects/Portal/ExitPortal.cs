@@ -9,6 +9,7 @@ public class ExitPortal : MonoBehaviour
     IntVariable level;
     Animator animator;
 
+
     void Start(){
         animator = GetComponent<Animator>();
     }
@@ -17,14 +18,18 @@ public class ExitPortal : MonoBehaviour
             return;
 
         animator.SetBool("shouldClose", true);
-        StartCoroutine(NextLevel(other));
+            StartCoroutine(NextLevel(other));
     }
 
     IEnumerator NextLevel(Collider2D other){
-        other.gameObject.SetActive(false);
-        yield return new WaitForSeconds(3);
-        level.value++;
-        SceneManager.LoadScene("level" + level.value);
+
+
+            other.gameObject.SetActive(false);
+            Debug.Log("next");
+            yield return new WaitForSeconds(3);
+            Debug.Log("nexie");
+            level.value++;
+            SceneManager.LoadScene("Level" + level.value);
 
     }
 
@@ -33,6 +38,6 @@ public class ExitPortal : MonoBehaviour
     /// </summary>
     void Update(){
       if(  animator.GetCurrentAnimatorStateInfo(0).IsName("Remove"))
-            gameObject.SetActive(false);
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 }

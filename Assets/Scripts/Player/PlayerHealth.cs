@@ -17,9 +17,11 @@ public class PlayerHealth : HealthManager
         health = MAXHEALTH;
         sprite = GetComponent<SpriteRenderer>();
         Transform LivesHolder = GameObject.Find("LivesUI").transform;
-
+        LivesHolder.GetComponent<CreateLifes>().MakeLifes();
+        Debug.Log(LivesHolder == null);
         foreach (Transform life in LivesHolder){
             lives.Add(life.gameObject);
+            Debug.Log("a");
         }
 
 
