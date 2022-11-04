@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1232682965354774014}
   - component: {fileID: 1232682965354773987}
   - component: {fileID: 1232682965354773984}
-  - component: {fileID: 1232682965354773989}
   - component: {fileID: 1232682965354773986}
+  - component: {fileID: 3131621109152875773}
   m_Layer: 8
   m_Name: StaticEnemy
   m_TagString: Untagged
@@ -102,18 +102,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.08643078}
+  m_Offset: {x: 0, y: -0.0043943077}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.16, y: 0.68}
+    oldSize: {x: 1.16, y: 0.56}
     newSize: {x: 1.16, y: 0.68}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.16, y: 0.5071384}
+  m_Size: {x: 1.16, y: 0.55834246}
   m_EdgeRadius: 0
 --- !u!50 &1232682965354773984
 Rigidbody2D:
@@ -136,19 +136,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1232682965354773989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232682965354774012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0b3be4ef25d0c5408ad8e097814e5ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  facingLeft: 0
 --- !u!114 &1232682965354773986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +149,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+--- !u!114 &3131621109152875773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232682965354774012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc3ef12e23e320747b426d88886e4c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingLeft: 0
+  UpsideDown: 0
 --- !u!1 &1232682965426150922
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +319,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.08681916}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

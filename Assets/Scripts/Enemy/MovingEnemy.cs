@@ -11,13 +11,13 @@ public class MovingEnemy :Enemy {
     Rigidbody2D rb;
 
 
-    protected override void SetDirection(){
+    protected override void SetDirection(SpriteRenderer sprite){
         rb = GetComponent<Rigidbody2D>();
         isFacingRight = movementSpeed > 0;
 
         if(!isFacingRight)
             bouncePoint.localPosition = new Vector2(-bouncePoint.localPosition.x, bouncePoint.localPosition.y);
-        GetComponent<SpriteRenderer>().flipX = !isFacingRight;
+        sprite.flipX = !isFacingRight;
     }
 
         // Update is called once per frame
