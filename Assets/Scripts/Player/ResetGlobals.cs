@@ -3,10 +3,8 @@ using UnityEngine;
 
 public class ResetGlobals : MonoBehaviour
 {
-    [SerializeField]
-    BoolVariable gravity;
-    [SerializeField]
-    IntVariable level;
+    [SerializeField] BoolVariable gravity;
+    [SerializeField] IntVariable level;
     // Start is called before the first frame update
     void Start()
     {

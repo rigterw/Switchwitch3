@@ -2,61 +2,67 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public enum State {
-idle, walking, falling, died
-}
-
-public class StateMachine : MonoBehaviour
+namespace player
 {
-    Animator animator;
-    Rigidbody2D rigibody;
-
-    State currentState;
-
-    void Start()
+    public enum State
     {
-        animator = GetComponent<Animator>();
-        rigibody = GetComponent<Rigidbody2D>();
+        idle, walking, falling, died
     }
 
-
-    void Update()
+    public class StateMachine : MonoBehaviour
     {
-        State lastState = currentState;
-        currentState = GetNextState();
-     
-        if(currentState == lastState)
-            return;
+        Animator animator;
+        Rigidbody2D rigibody;
 
-        UpdateAnimation(currentState);
-    }
+        State currentState;
 
-    /// <summary>
-    /// checks the new state
-    /// </summary>
-    /// <returns>the next state</returns>
-    State GetNextState(){
-        Vector2 velocity = rigibody.velocity;
-        if(velocity.y >= 2f || velocity.y <= -2f)
-            return State.falling;
-
-        if(velocity.x != 0)
-            return State.walking;
-        
-        return State.idle;
-    }
+        void Start()
+        {
+            animator = GetComponent<Animator>();
+            rigibody = GetComponent<Rigidbody2D>();
+        }
 
 
-    /// <summary>
-    /// function that plays the next animation
-    /// </summary>
-    /// <param name="nextState">the state that the animator has to switch to</param>
-    void UpdateAnimation(State nextState){
-        animator.SetInteger("state", (int)nextState);
-    }
+        void Update()
+        {
+            State lastState = currentState;
+            currentState = GetNextState();
 
-    public State CurrentState{
-        get { return currentState; }
+            if (currentState == lastState)
+                return;
+
+            UpdateAnimation(currentState);
+        }
+
+        /// <summary>
+        /// checks the new state
+        /// </summary>
+        /// <returns>the next state</returns>
+        State GetNextState()
+        {
+            Vector2 velocity = rigibody.velocity;
+            if (velocity.y >= 2f || velocity.y <= -2f)
+                return State.falling;
+
+            if (velocity.x != 0)
+                return State.walking;
+
+            return State.idle;
+        }
+
+
+        /// <summary>
+        /// function that plays the next animation
+        /// </summary>
+        /// <param name="nextState">the state that the animator has to switch to</param>
+        void UpdateAnimation(State nextState)
+        {
+            animator.SetInteger("state", (int)nextState);
+        }
+
+        public State CurrentState
+        {
+            get { return currentState; }
+        }
     }
 }
