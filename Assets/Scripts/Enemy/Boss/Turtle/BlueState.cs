@@ -1,7 +1,11 @@
 using UnityEngine;
-public class BlueState : State
+namespace TurtleStates
 {
-    public BlueState(SpriteRenderer sprite) : base(sprite){
-        color = new Color(29, 203, 222);
+    public class BlueState : State
+    {
+        public BlueState(SpriteRenderer sprite, Transform player) : base(sprite, player)
+        {
+            color = new Color(29, 203, 222);
+        }
     }
 }
