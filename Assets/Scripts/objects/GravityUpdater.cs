@@ -11,6 +11,10 @@ public class GravityUpdater : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    /// <summary>
+    /// function that changes the gravity
+    /// </summary>
+    /// <param name="isReversed">if gravity is normal or the other way around</param>
     public virtual void ChangeGravity(bool isReversed){
         rb.gravityScale = isReversed ? -GravityController.gravity : GravityController.gravity;
         GetComponent<SpriteRenderer>().flipY = isReversed;

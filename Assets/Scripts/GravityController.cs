@@ -17,7 +17,7 @@ public class GravityController : MonoBehaviour
 
         List<GameObject> objects;
 
-
+        //searches for all objects with the gravityaffected tag
         objects = CustomTags.FindGameObjectsWithTag(Tag.gravityAffected);
 
         foreach (GameObject obj in objects){
