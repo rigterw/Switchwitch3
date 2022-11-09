@@ -4,20 +4,20 @@ namespace TurtleStates
 {
     public class State
     {
-        protected Color color;
+        public Color color;
         SpriteRenderer sprite;
-        protected float speed = 10;
+        [SerializeField]
+        protected float speed = 3;
         Transform player;
-
+        BoolVariable gravityBool;
         public State(SpriteRenderer spriteRenderer, Transform player)
         {
             sprite = spriteRenderer;
             this.player = player;
         }
 
-        public virtual void Enter()
-        {
-            sprite.color = color;
+        public virtual void Enter(){
+            
         }
 
 
@@ -31,17 +31,16 @@ namespace TurtleStates
             Vector2 velocity;
             if (veloci == null)
             {
-                velocity = new Vector2(0, 0);
+                velocity = new Vector2(1, 0);
             }
             else
             {
                 velocity = (Vector2)veloci;
             }
-            int direction;
+            int direction = player.position.x > bossPoss.position.x ? 1 : -1;;
 
-            direction = player.position.x > bossPoss.position.x ? 1 : -1;
 
-            velocity *= direction * speed;
+            velocity *= direction;
             return velocity;
         }
     }

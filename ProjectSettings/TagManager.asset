@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GravityAffected
   - Enemy
+  - Grid
   layers:
   - Default
   - TransparentFX

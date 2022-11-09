@@ -7,7 +7,7 @@ public class GravityUpdater : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    void Start(){
+    protected virtual void Start(){
         rb = GetComponent<Rigidbody2D>();
     }
 
