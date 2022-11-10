@@ -22,25 +22,8 @@ namespace TurtleStates
                 bouncePoint.localPosition = -bouncePoint.localPosition;
                 direction = -direction;
             }
-            if(healthManager.Timer > 0)
-                Flash();
         }
 
-
-        /// <summary>
-        /// gives a flasihing effect by switching the state animations
-        /// </summary>
-        void Flash()
-        {
-            if (healthManager.Timer % 30 == 0)
-            {
-                animator.SetInteger("State", 1);
-            }
-            else if (healthManager.Timer % 15 == 0)
-            {
-                animator.SetInteger("State", 2);
-            }
-        }
 
 
         public override Vector2 calculateForce(Transform bossPoss, Vector2? veloci = null)

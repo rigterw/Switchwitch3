@@ -14,4 +14,10 @@ public class Activator : MonoBehaviour
             return;
         activator.Invoke();
     }
+
+    void OnCollisionEnter2D(Collision2D other){
+                if(!other.gameObject.CompareTag("Player"))
+            return;
+        activator.Invoke();
+    }
 }

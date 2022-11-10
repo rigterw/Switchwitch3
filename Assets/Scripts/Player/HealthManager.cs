@@ -33,7 +33,11 @@ public class HealthManager : MonoBehaviour
         health++;
     }
 
-
+    void Start(){
+        if(health <0){
+            Debug.LogError("health is lower than 1");
+        }
+    }
     /// <summary>
     /// function that heals the player a specific amount of lives
     /// </summary>

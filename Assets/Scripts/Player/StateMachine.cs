@@ -9,12 +9,19 @@ namespace player
         idle, walking, falling, died
     }
 
+    public enum Element
+    {
+        normal, fire
+    }
+
     public class StateMachine : MonoBehaviour
     {
         Animator animator;
         Rigidbody2D rigibody;
 
         State currentState;
+        Element currentElement;
+        public Element CurrentElement {get { return currentElement; } }
 
         void Start()
         {
@@ -48,6 +55,18 @@ namespace player
                 return State.walking;
 
             return State.idle;
+        }
+
+        public void SwitchElements(Element element){
+            currentElement = element;
+            animator.SetInteger("Element", (int)element);
+            animator.SetTrigger("changeElement");
+            StartCoroutine(deactivateTrigger());
+        }
+
+        IEnumerator deactivateTrigger(){
+            yield return new WaitForEndOfFrame();
+            animator.ResetTrigger("changeElement");
         }
 
 

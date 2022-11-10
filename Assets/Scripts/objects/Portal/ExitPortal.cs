@@ -8,10 +8,12 @@ public class ExitPortal : MonoBehaviour
     [SerializeField]
     IntVariable level;
     Animator animator;
+    AudioSource openSound;
 
 
     void Start(){
         animator = GetComponent<Animator>();
+        openSound = GetComponent<AudioSource>();
     }
     void OnTriggerEnter2D(Collider2D other){
         if(!other.CompareTag("Player"))
@@ -31,6 +33,11 @@ public class ExitPortal : MonoBehaviour
             level.value++;
             SceneManager.LoadScene("Level" + level.value);
 
+    }
+
+    public void Open(){
+        animator.SetTrigger("open");
+        openSound.Play();
     }
 
     /// <summary>

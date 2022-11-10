@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using player;
 
 
 
@@ -21,14 +22,14 @@ public class PlayerController : MonoBehaviour
     bool onGround;
     public BoolVariable reverseGravity;
     Rigidbody2D rigidBody;
-
+    StateMachine sm;
 
 
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        
+        sm = GetComponent<StateMachine>();
     }
 
     void Awake(){
@@ -90,7 +91,12 @@ public class PlayerController : MonoBehaviour
     /// function that activates the current power
     /// </summary>
     void UsePower(InputAction.CallbackContext context){
-        Debug.Log(context.ToString());
+        switch (sm.CurrentElement){
+        case Element.fire:
+                ///
+                break;
+
+        }
     }
 
 

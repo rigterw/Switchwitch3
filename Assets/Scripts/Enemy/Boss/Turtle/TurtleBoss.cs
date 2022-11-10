@@ -23,6 +23,7 @@ public class TurtleBoss : Enemy
     public BoolVariable gravity;
     TurtleGravity gravityUpdater;
     BossHealth bosshealth;
+    SpriteRenderer sprite;
     protected override void Start()
     {
         GameObject player = GameObject.Find("Player");
@@ -30,7 +31,7 @@ public class TurtleBoss : Enemy
         rb = GetComponent<Rigidbody2D>();
         gravityUpdater = GetComponent<TurtleGravity>();
         bosshealth = GetComponent<BossHealth>();
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+         sprite = GetComponent<SpriteRenderer>();
 
 
 
@@ -58,6 +59,8 @@ public class TurtleBoss : Enemy
         if(eCurrentState == state.Hit && bosshealth.Timer < 0){
             Activate();
         }
+        sprite.flipX = rb.velocity.x > 0;
+
     }
 
     void FixedUpdate(){
@@ -87,12 +90,11 @@ public class TurtleBoss : Enemy
         eCurrentState = newState;
         currentState.Enter();
         gravityUpdater.ChangeGravity(gravity.value);
-        if (newState != state.Hit)
+        if (newState == state.Hit)
         {
-            animator.SetInteger("State", (int)eCurrentState);
-        }else{
             StopCoroutine(SwitchLoop());
         }
+            animator.SetInteger("State", (int)eCurrentState);
 
     }
 

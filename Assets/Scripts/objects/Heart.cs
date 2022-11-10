@@ -5,7 +5,7 @@ using UnityEngine;
 public class Heart : MonoBehaviour
 {
 
-    float animationSpeed = 0.0025f;//speed of the rotation animation
+    float animationSpeed = 0.025f;//speed of the rotation animation
 
     /// <summary>
     /// function that tries to give healing to object that collides
@@ -22,7 +22,7 @@ public class Heart : MonoBehaviour
         gameObject.SetActive(false);
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.localScale -= new Vector3(animationSpeed, 0, 0);
         if(transform.localScale.x < -1 || transform.localScale.x > 1)

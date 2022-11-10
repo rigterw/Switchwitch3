@@ -14,11 +14,12 @@ public class EnemyHealth : HealthManager
 
     }
 
-    void Update(){
+    void FixedUpdate(){
         if(!died)
             return;
         
         //starts rotating when dead
-        transform.Rotate(new Vector3(0, 0, 2 * rotationdir));
+        transform.Rotate(new Vector3(0, 0, 5 * rotationdir));
     }
+    
 }
