@@ -87,6 +87,20 @@ public class PlayerController : MonoBehaviour
         GetComponent<SpriteRenderer>().flipY = reverseGravity.value;
     }
 
+
+    /// <summary>
+    /// function that keeps track of the onground bool
+    /// </summary>
+    /// <param name="collider">ground object that player is colliding with</param>
+    /// <param name="exit">bool if the player is leaving the collider</param>
+    void HandleGround(Collision2D collider, bool exit){
+        CustomTags tags = collider.gameObject.GetComponent<CustomTags>();
+        if(tags == null)
+            return;
+        if(tags.hasTag(Tag.surface)){
+            onGround = !exit;
+        }
+    }
     /// <summary>
     /// function that activates the current power
     /// </summary>
@@ -106,18 +120,11 @@ public class PlayerController : MonoBehaviour
 
 
     void OnCollisionStay2D(Collision2D collider){
-        CustomTags tags = collider.gameObject.GetComponent<CustomTags>();
-        if(tags == null)
-            return;
-        if(tags.hasTag(Tag.surface)){
-            onGround = true;
-        }
+        HandleGround(collider, false);
     }
 
+
     void OnCollisionExit2D(Collision2D collider){
-        CustomTags otherTags = collider.gameObject.GetComponent<CustomTags>();
-        if(otherTags != null && otherTags.hasTag(Tag.surface)){
-            onGround = false;
-        }
+        HandleGround(collider, true);
     }
 }

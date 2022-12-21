@@ -57,6 +57,10 @@ namespace player
             return State.idle;
         }
 
+        /// <summary>
+        /// function that switches the element (state) of the player
+        /// </summary>
+        /// <param name="element">next element</param>
         public void SwitchElements(Element element){
             currentElement = element;
             animator.SetInteger("Element", (int)element);
