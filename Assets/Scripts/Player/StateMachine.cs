@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 namespace player
 {
     public enum State
@@ -21,15 +23,19 @@ namespace player
 
         State currentState;
         Element currentElement;
+
+
+
+        Dictionary<Element, IElement> elements = new Dictionary<Element, IElement>();
         public Element CurrentElement {get { return currentElement; } }
 
         void Start()
         {
             animator = GetComponent<Animator>();
             rigibody = GetComponent<Rigidbody2D>();
+
+            InitiateElements();
         }
-
-
         void Update()
         {
             State lastState = currentState;
@@ -57,6 +63,14 @@ namespace player
             return State.idle;
         }
 
+
+        /// <summary>
+        /// adds the elementstates to the dictionary
+        /// </summary>
+        private void InitiateElements(){
+            elements.Add(Element.normal, new NormalElement());
+        }
+
         /// <summary>
         /// function that switches the element (state) of the player
         /// </summary>
@@ -68,6 +82,17 @@ namespace player
             StartCoroutine(deactivateTrigger());
         }
 
+        /// <summary>
+        /// uses the current states power
+        /// </summary>
+        public void UsePower(){
+            elements[currentElement].UsePower();
+        }
+
+
+    	/// <summary>
+        /// resets the changelement trigger
+        /// </summary>
         IEnumerator deactivateTrigger(){
             yield return new WaitForEndOfFrame();
             animator.ResetTrigger("changeElement");
