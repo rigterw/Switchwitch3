@@ -1,7 +1,7 @@
 
 namespace player{
-    class NormalElement : IElement{
-        public void UsePower(){
+    class NormalElement : ElementState{
+        public override void UsePower(){
 
         }
     }

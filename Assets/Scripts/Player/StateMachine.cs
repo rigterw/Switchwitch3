@@ -26,7 +26,7 @@ namespace player
 
 
 
-        Dictionary<Element, IElement> elements = new Dictionary<Element, IElement>();
+        Dictionary<Element, ElementState> elements = new Dictionary<Element, ElementState>();
         public Element CurrentElement {get { return currentElement; } }
 
         void Start()
@@ -69,6 +69,7 @@ namespace player
         /// </summary>
         private void InitiateElements(){
             elements.Add(Element.normal, new NormalElement());
+            elements.Add(Element.fire, new FireElement());
         }
 
         /// <summary>
