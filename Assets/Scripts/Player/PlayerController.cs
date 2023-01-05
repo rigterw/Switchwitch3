@@ -30,50 +30,50 @@ public class PlayerController : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         sm = GetComponent<StateMachine>();
+
+        moveValue = Vector2.zero;
     }
 
-    void Awake(){
-        playerInput = new Controls();
-    }
 
-    void OnEnable(){
-        move = playerInput.player.Move;
-        move.Enable();
-
-        Power = playerInput.player.UsePower;
-        Power.Enable();
-        Power.performed += UsePower;
-
-        UpDown = playerInput.player.UpDown;
-        UpDown.Enable();
-
-    }
-
-    void OnDisable(){
-        move.Disable();
-        Power.Disable();
-        UpDown.Disable();
-
-    }
 
     // Update is called once per frame
     void Update()
     {
-        moveValue = move.ReadValue<Vector2>();
-        if(UpDown.ReadValue<float>() == -1 + 2*Convert.ToInt32(reverseGravity.value) ){
-            //sneak
-        }else if(UpDown.ReadValue<float>() != 0){
-            HandleGravity();
-        }
 
         //flips the sprite x-as
         GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x <= -1f;
     }
 
     void FixedUpdate(){
+        Vector2 moveValue = this.moveValue;
         moveValue *= movementSpeed;
+        
         moveValue.y = rigidBody.velocity.y;
         rigidBody.velocity = moveValue;
+    }
+
+
+    /// <summary>
+    /// function that handles the movement input
+    /// </summary>
+    /// <param name="context">context of the incoming input</param>
+    public void Move(InputAction.CallbackContext context){
+        Debug.Log(context.ReadValue<Vector2>());
+        moveValue = context.ReadValue<Vector2>();
+
+
+    }
+
+    /// <summary>
+    /// function that handles the up/down input
+    /// </summary>
+    /// <param name="context">context of the up/down input</param>
+    public void HandleUpDown(InputAction.CallbackContext context){
+        if(context.ReadValue<float>() == -1 + 2*Convert.ToInt32(reverseGravity.value) ){
+            //sneak
+        }else if(context.ReadValue<float>() != 0){
+            HandleGravity();
+        }
     }
 
     /// <summary>
@@ -99,17 +99,6 @@ public class PlayerController : MonoBehaviour
             return;
         if(tags.hasTag(Tag.surface)){
             onGround = !exit;
-        }
-    }
-    /// <summary>
-    /// function that activates the current power
-    /// </summary>
-    void UsePower(InputAction.CallbackContext context){
-        switch (sm.CurrentElement){
-        case Element.fire:
-                ///
-                break;
-
         }
     }
 

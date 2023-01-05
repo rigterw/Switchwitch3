@@ -199,7 +199,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5386155936796943763}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: HandleUpDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: a8297841-8b8d-4b92-81d3-cf2b7ecb121d
     m_ActionName: player/Up[/Keyboard/w,/Keyboard/upArrow]
   - m_PersistentCalls:
@@ -211,7 +223,19 @@ MonoBehaviour:
     m_ActionId: cda713ec-d2ce-4ddb-9c04-d900e24bd000
     m_ActionName: player/Pauze[/Keyboard/escape]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5386155936796943763}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: db874a68-e18e-4ee8-ba22-d04ebf5d5ffe
     m_ActionName: player/VerticalMove[/Keyboard/a,/Keyboard/d]
   m_NeverAutoSwitchControlSchemes: 0
@@ -245,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f41fce3a0446e48a9d9b5d5d05f6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentElement: {fileID: 11400000, guid: b062a94ea13b9514bb1325843f4a98e1, type: 2}
 --- !u!114 &5386155936796943767
 MonoBehaviour:
   m_ObjectHideFlags: 0
