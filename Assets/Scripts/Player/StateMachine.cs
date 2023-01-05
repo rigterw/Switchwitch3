@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 
@@ -22,12 +23,13 @@ namespace player
         Rigidbody2D rigibody;
 
         State currentState;
-        Element currentElement;
-
-
+        [SerializeField] private ElementVariable currentElement;
 
         Dictionary<Element, ElementState> elements = new Dictionary<Element, ElementState>();
-        public Element CurrentElement {get { return currentElement; } }
+        public Element CurrentElement {get { return currentElement.value; } }
+
+
+        [SerializeField] private GameObject bullet;
 
         void Start()
         {
@@ -35,6 +37,7 @@ namespace player
             rigibody = GetComponent<Rigidbody2D>();
 
             InitiateElements();
+            SwitchElements(currentElement.value);
         }
         void Update()
         {
@@ -68,8 +71,9 @@ namespace player
         /// adds the elementstates to the dictionary
         /// </summary>
         private void InitiateElements(){
-            elements.Add(Element.normal, new NormalElement());
-            elements.Add(Element.fire, new FireElement());
+            elements.Add(Element.normal, new NormalElement(transform));
+
+            elements.Add(Element.fire, new FireElement(transform, bullet));
         }
 
         /// <summary>
@@ -77,7 +81,7 @@ namespace player
         /// </summary>
         /// <param name="element">next element</param>
         public void SwitchElements(Element element){
-            currentElement = element;
+            currentElement.value = element;
             animator.SetInteger("Element", (int)element);
             animator.SetTrigger("changeElement");
             StartCoroutine(deactivateTrigger());
@@ -86,8 +90,12 @@ namespace player
         /// <summary>
         /// uses the current states power
         /// </summary>
-        public void UsePower(){
-            elements[currentElement].UsePower();
+        public void UsePower(InputAction.CallbackContext context){
+            if(!context.performed)
+                return;
+
+            Debug.Log("power");
+            elements[currentElement.value].UsePower();
         }
 
 

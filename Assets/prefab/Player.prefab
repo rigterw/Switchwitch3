@@ -215,7 +215,19 @@ MonoBehaviour:
     m_ActionId: a8297841-8b8d-4b92-81d3-cf2b7ecb121d
     m_ActionName: player/Up[/Keyboard/w,/Keyboard/upArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5386155936796943765}
+        m_TargetAssemblyTypeName: player.StateMachine, Assembly-CSharp
+        m_MethodName: UsePower
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 24c7ef06-fb7e-407b-9417-90cca45163c3
     m_ActionName: player/Fire[/Keyboard/space]
   - m_PersistentCalls:
@@ -270,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentElement: {fileID: 11400000, guid: b062a94ea13b9514bb1325843f4a98e1, type: 2}
+  bullet: {fileID: 5693852744735623277, guid: e970811d2a991384190bd587adf72787, type: 3}
 --- !u!114 &5386155936796943767
 MonoBehaviour:
   m_ObjectHideFlags: 0
