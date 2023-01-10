@@ -20,6 +20,7 @@ public class HealthManager : MonoBehaviour
     /// </summary>
     public virtual void GetHit(){
         health--;
+        Debug.Log(health);
         if(health <= 0)
             Die();
     }

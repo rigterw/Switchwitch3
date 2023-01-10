@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 865850492}
   - component: {fileID: 865850494}
   - component: {fileID: 965506882600722935}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: SplashArea
   m_TagString: GravityAffected
   m_Icon: {fileID: 0}
@@ -230,10 +230,9 @@ GameObject:
   - component: {fileID: 4499545632694482738}
   - component: {fileID: 4499545632694482739}
   - component: {fileID: 4499545632694482737}
-  - component: {fileID: -825981316652484316}
   - component: {fileID: 8110252988389001758}
-  - component: {fileID: 1879653800}
   - component: {fileID: 1879653801}
+  - component: {fileID: 774502401}
   m_Layer: 0
   m_Name: crate
   m_TagString: GravityAffected
@@ -356,32 +355,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.26, y: 0.29}
   m_EdgeRadius: 0
---- !u!114 &-825981316652484316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4499545632694482701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7add15747c3f15842bda64185d2db202, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8110252988389001758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4499545632694482701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6007bae825a3474684fa7b1039c7e79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tags: 01000000
---- !u!114 &1879653800
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -406,3 +380,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7add15747c3f15842bda64185d2db202, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &774502401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499545632694482701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe23169afd7789d4c8363e3dafb2fd75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5

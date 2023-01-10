@@ -15,4 +15,18 @@ public class Projectile : MonoBehaviour
     private void Update(){
         transform.position += velocity;
     }
+
+    private void OnTriggerEnter2D(Collider2D other){
+        //firendly fire check
+        if(other.transform == sender)
+            return;
+        
+        //damages the object it collides with
+        HealthManager otherHealth = other.GetComponent<HealthManager>();
+        if(otherHealth != null)
+            otherHealth.GetHit();
+
+        Destroy(this.gameObject);
+
+    }
 }

@@ -13,6 +13,8 @@ public class DamagePlayer : MonoBehaviour
     }
 
     protected virtual void Damage(Collider2D other){
+        if(other.transform == transform || other.transform == transform.parent)
+            return;
         HealthManager hm = other.gameObject.GetComponent<HealthManager>();
         if(hm == null)
             return;

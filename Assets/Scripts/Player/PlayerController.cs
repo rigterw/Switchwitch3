@@ -40,8 +40,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        if( rigidBody.velocity.x < 0.001f && rigidBody.velocity.x > -0.001f)
+            return;
+        Debug.Log(rigidBody.velocity.x);
         //flips the sprite x-as
-        GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x <= -1f;
+        GetComponent<SpriteRenderer>().flipX = rigidBody.velocity.x < 0f;
     }
 
     void FixedUpdate(){
@@ -58,10 +61,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     /// <param name="context">context of the incoming input</param>
     public void Move(InputAction.CallbackContext context){
-        Debug.Log(context.ReadValue<Vector2>());
         moveValue = context.ReadValue<Vector2>();
-
-
     }
 
     /// <summary>
