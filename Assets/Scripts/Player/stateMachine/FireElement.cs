@@ -6,16 +6,15 @@ namespace player{
 
         private GameObject bulletPrefab;
 
-        public FireElement(Transform player, GameObject projectile) : base(player)
+        public FireElement(StateMachine sm, Transform player, GameObject projectile) : base(sm, player, 1)
         {
-            Debug.Log(projectile);
             bulletPrefab = projectile;
         }
 
         /// <summary>
         /// function that launches a bullet 
         /// </summary>
-        public override void UsePower(){
+        protected override void ActivatePower(){
             Projectile bullet = GameObject.Instantiate(bulletPrefab).GetComponent<Projectile>();
             bullet.Launch(getDirection(), player);
         }

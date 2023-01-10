@@ -652,42 +652,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5386155936796943761, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5386155936796943762, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5386155936796943764, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5386155936796943764, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5386155936796943764, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5386155936796943763, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-    - target: {fileID: 5386155936796943764, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5386155936796943764, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Move
-      objectReference: {fileID: 0}
-    - target: {fileID: 5386155936796943764, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PlayerController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5386155936796943764, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
-      propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1146e66fd1b1e7444a20cb1eaf470809, type: 3}
 --- !u!1 &5985910567710520875

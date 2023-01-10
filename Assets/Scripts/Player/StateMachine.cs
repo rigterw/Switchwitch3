@@ -71,9 +71,9 @@ namespace player
         /// adds the elementstates to the dictionary
         /// </summary>
         private void InitiateElements(){
-            elements.Add(Element.normal, new NormalElement(transform));
+            elements.Add(Element.normal, new ElementState(this, transform));
 
-            elements.Add(Element.fire, new FireElement(transform, bullet));
+            elements.Add(Element.fire, new FireElement(this, transform, bullet));
         }
 
         /// <summary>
