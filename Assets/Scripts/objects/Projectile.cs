@@ -4,14 +4,28 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    Vector3 velocity;
-    Transform sender;
+    private Vector3 velocity;
+    private Transform sender;
+
+    [SerializeField] private float despawnTime;
+
     public void Launch(Vector3 velocity, Transform sender){
         this.velocity = velocity/100;
         this.sender = sender;
         this.transform.position = sender.position;
+
+        StartCoroutine(Despawn(despawnTime));
     }
 
+    /// <summary>
+    /// despawns the bullet after specified amount of time
+    /// </summary>
+    /// <param name="time">the time the bullet stays alive</param>
+    private IEnumerator Despawn(float time){
+        yield return new WaitForSeconds(time);
+
+        Destroy(this.gameObject);
+    }
     private void Update(){
         transform.position += velocity;
     }
