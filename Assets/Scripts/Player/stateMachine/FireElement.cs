@@ -16,17 +16,18 @@ namespace player{
         /// </summary>
         protected override void ActivatePower(){
             Projectile bullet = GameObject.Instantiate(bulletPrefab).GetComponent<Projectile>();
-            bullet.Launch(getDirection(), player);
+            bullet.Launch(getDirection(player), player);
         }
-
 
         /// <summary>
         /// function that calculates the velocty the bullet will have
         /// </summary>
         /// <returns>a vector3 of the velocity</returns>
-        private Vector3 getDirection(){
-            float vX = player.GetComponent<SpriteRenderer>().flipX ? -1 : 1;
+        private Vector3 getDirection(Transform sender){
+            float vX = sender.GetComponent<SpriteRenderer>().flipX ? -1 : 1;
             return new Vector3(vX, 0,0);
         }
+
+
     }
 }
