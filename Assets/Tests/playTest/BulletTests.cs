@@ -8,7 +8,7 @@ public class BulletTests
 {
 
 /// <summary>
-/// unitytest that tests if a bullet travels forward
+/// unitytest that checks if a bullet travels forward
 /// </summary>
     [UnityTest] public IEnumerator BulletTravelTest()
     {
@@ -22,8 +22,10 @@ public class BulletTests
 
 
     }
-
-        [UnityTest] public IEnumerator BulletDespawnTest()
+        /// <summary>
+        /// unitytest that checks if the bullet despawns after a certain time
+        /// </summary>
+    [UnityTest] public IEnumerator BulletDespawnTest()
     {
         var bullet = new GameObject();
         var bulletScript = bullet.AddComponent<Projectile>();

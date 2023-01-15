@@ -2,7 +2,7 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     public const int MAXHEALTH = 3;
-    [SerializeField] protected int health;
+    [SerializeField] protected int health = -1;
 
     /// <summary>
     /// function that kills the player
@@ -37,6 +37,7 @@ public class HealthManager : MonoBehaviour
     void Start(){
         if(health <0){
             Debug.LogError("health is lower than 1");
+            health = MAXHEALTH;
         }
     }
     /// <summary>
