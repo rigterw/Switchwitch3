@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
     private Vector3 velocity;
     private Transform sender;
 
-    [SerializeField] private float despawnTime;
+    [SerializeField] private float despawnTime = 8;
 
     public void Launch(Vector3 velocity, Transform sender){
         this.velocity = velocity/100;
