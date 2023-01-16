@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     Vector2 moveValue;
 
     //variables for gravity handling
-    bool onGround;
+    private bool onGround;
     public BoolVariable reverseGravity;
     Rigidbody2D rigidBody;
     StateMachine sm;
