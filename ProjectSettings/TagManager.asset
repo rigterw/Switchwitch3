@@ -7,6 +7,7 @@ TagManager:
   - GravityAffected
   - Enemy
   - Grid
+  - Projectile
   layers:
   - Default
   - TransparentFX

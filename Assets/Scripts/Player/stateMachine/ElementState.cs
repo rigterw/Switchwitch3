@@ -5,6 +5,7 @@ namespace player{
     public class ElementState
     {
         private float cooldownTime;
+        public float CooldownTime {get { return cooldownTime; } }
         private bool onCooldown;
 
         private StateMachine sm;
@@ -21,20 +22,19 @@ namespace player{
         /// activates the current elements power
         /// </summary>
         protected virtual void ActivatePower(){
-
         }
 
         /// <summary>
         /// function that tries to use the power
         /// </summary>
-        public void UsePower()
+        public bool UsePower()
         {
             if(onCooldown)
-                return;
+                return false;
             ActivatePower();
             onCooldown = true;
             sm.StartCoroutine(resetCooldown(cooldownTime));
-            
+            return true;
         }
 
         /// <summary>

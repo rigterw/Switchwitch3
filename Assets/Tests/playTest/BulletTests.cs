@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using player;
 
 public class BulletTests
 {
@@ -37,5 +38,32 @@ public class BulletTests
 
 
     }
+    //#############I tried to make a test to test the cooldown, however I found out that the bullet and fire state sadly have too many dependencies to make it work.
+
+
+    // /// <summary>
+    // /// unitytest that checks if the bullet despawns after a certain time
+    // /// </summary>
+    // [UnityTest] public IEnumerator BulletCooldownTest()
+    // {
+    //     GameObject player = new GameObject();
+    //     StateMachine sm = player.AddComponent<StateMachine>();
+    //     GameObject bullet = new GameObject("bullet");
+    //     bullet.tag = "Projectile";
+    //     bullet.AddComponent<SpriteRenderer>();
+    //     bullet.AddComponent<Projectile>();
+    //     player.AddComponent<Rigidbody2D>();
+    //     player.AddComponent<SpriteRenderer>();
+    //     player.AddComponent<Animator>().;
+    //     int counter = 0;
+    //     FireElement fireElement = new FireElement(sm, player.transform, bullet);
+    //     for (int i = 0; i < fireElement.CooldownTime+1; i++){
+        
+    //         if(fireElement.UsePower())
+    //          counter++;
+    //         yield return new WaitForSeconds(1);
+    //     }
+    //     Assert.AreEqual(counter, 2);
+    // }
 
 }

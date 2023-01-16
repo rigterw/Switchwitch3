@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 namespace player{
-    class FireElement : ElementState{
+   public class FireElement : ElementState{
 
         private GameObject bulletPrefab;
 
@@ -16,6 +16,9 @@ namespace player{
         /// </summary>
         protected override void ActivatePower(){
             Projectile bullet = GameObject.Instantiate(bulletPrefab).GetComponent<Projectile>();
+
+            Debug.Log(bullet);
+            Debug.Log(player);
             bullet.Launch(getDirection(player), player);
         }
 
