@@ -6,6 +6,7 @@ public class Heart : MonoBehaviour
 {
 
     float animationSpeed = 0.025f;//speed of the rotation animation
+    [SerializeField] ExitPortal portal;
 
     /// <summary>
     /// function that tries to give healing to object that collides
@@ -14,6 +15,9 @@ public class Heart : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(!other.CompareTag("Player"))
             return;
+
+        portal.lifeFound = true;
+            
         HealthManager playerHealth = other.gameObject.GetComponent<HealthManager>();
         if(playerHealth == null)
             return;
